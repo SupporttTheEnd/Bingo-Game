@@ -7,7 +7,6 @@
 #include <random>
 #include <vector>
 using namespace std;
-class Grader;//this class is for grading purposes, no need to do anything
 class Tester;//this is your tester class, you add your test functions in this class
 const int CARDROWS = 5;     // default number of rows
 const int CARDCOLS = 5;     // default number of columns
@@ -18,7 +17,6 @@ const int BALLS = MAXVAL - MINVAL + 1; // the number of balls that we can draw
 
 class Cell{
     public:
-    friend class Grader;
     friend class Tester;
     /* calling constructor with default params creates an empty object*/
     Cell(int row=0, int col=0, int val=EMPTYCELL){
@@ -44,7 +42,6 @@ class Cell{
 
 class Bingo{
     public:
-    friend class Grader;
     friend class Tester;
     Bingo();
     Bingo(int rows, int columns, int min, int max);
