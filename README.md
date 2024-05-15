@@ -3,32 +3,29 @@
 # Bingo Game Implementation
 
 ## Overview
-This project implements a Bingo game in C++. It provides functionalities to create Bingo cards, draw balls, and simulate a Bingo game.
+This repository contains the implementation of a Bingo game in C++. The project includes functionalities to create, initialize, play, and manage a Bingo game.
 
 ## Files
-- `bingo.h`: Header file containing class declarations.
-- `bingo.cpp`: Implementation file for the Bingo class.
-- `main.cpp`: Sample main file demonstrating the usage of the Bingo class.
+- `bingo.h` and `bingo.cpp`: These files contain the implementation of the Bingo game class, including constructors, destructor, methods for initializing the game, playing the game, and managing memory.
+- `mytest.cpp` and `driver.cpp`: These files provide test cases and a driver program to demonstrate the functionality of the Bingo game.
+- `Makefile`: Contains instructions for compiling the project.
 
-## Compilation and Execution
-To compile the program, use any C++ compiler such as g++:
-Or simply use the provided makefile. 
+## How to Use
+1. Include `bingo.h` in your C++ project.
+2. Create an instance of the `Bingo` class using one of the provided constructors.
+3. Initialize the Bingo card using the `reCreateCard` method.
+4. Play the game using the `play` method, passing a vector of randomly drawn numbers.
+5. Check the result of the game to determine the number of replacements made.
+6. Optionally, use the `dumpCard` method to display the Bingo card in the terminal.
 
-## Usage
-1. Include `bingo.h` in your C++ code.
-2. Create a Bingo object using the constructors provided.
-3. Use member functions to initialize cards, draw balls, and simulate the game.
-4. Sample usage can be found in `main.cpp`.
+## Compilation
+To compile the project, you can use the provided Makefile. Use the following commands:
+- `make p`: Compiles `mytest.cpp` with `bingo.o` to create an executable named `proj0`.
+- `make d`: Compiles `driver.cpp` with `bingo.o` to create an executable named `proj0`.
+- `make v`: Runs `valgrind` to check for memory leaks.
+- `make r`: Runs the executable `proj0`.
 
-## Functionality
-- `Bingo()`: Default constructor to create an empty Bingo object.
-- `Bingo(int rows, int columns, int min, int max)`: Overloaded constructor to create a Bingo object with specified parameters.
-- `reCreateCard(int rows, int columns, int min, int max)`: Initialize a new card with randomly generated numbers.
-- `play(int numDraws, vector<int> rndBalls)`: Simulate a Bingo game with given draws.
-- `dumpCard()`: Renders the Bingo card in the terminal for debugging.
+## Cleaning Up
+To clean up object files and executables, you can use:
+- `make clean`: Removes object files and temporary files.
 
-## Author
-- Andrew Tang
-
-## Date
-- September 12, 2023
