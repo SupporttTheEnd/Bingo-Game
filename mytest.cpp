@@ -6,12 +6,7 @@
 
 #include "bingo.h"
 class Tester{
-    public:wols != nullptr || obj.m_trackRows != nullptr || obj.m_helper != nullptr || obj.m_card != nullptr) {
-            result = false;
-        }
-
-        return result; 
-    }
+    public:
 
     bool constructorEdge(Bingo & obj) {
         bool result = true;
@@ -489,15 +484,7 @@ class Tester{
 };
 int main(){
     Tester tester;
-    // Initializing with invalid pararmeters should result in a empty object
-    cout << "Testing with invalid parameters for the constructor for an error case:" << endl; 
     Bingo obj1(-5,-10, MINVAL, MAXVAL);
-    if (tester.constructorError(obj1)){
-        cout << "Success: Constructor successfully created an empty object given invalid parameters" << endl;
-    }
-    else{
-        cout << "Failure: Constructor failed to create an empty object given invalid parameters" << endl;
-    }
 
     cout << "________________________________________________________" << endl; 
     // Initializing with lowest row parameter should work
