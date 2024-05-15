@@ -1,4 +1,3 @@
-// UMBC - CMSC 341 - Fall 2023 - Proj0
 // Title: bingo.cpp
 // Author: Andrew Tang
 // Date: 9/12/2023
