@@ -1,4 +1,3 @@
-// UMBC - CMSC 341 - Fall 2023 - Proj0
 #include "bingo.h"
 class Tester{
     public:
