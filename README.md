@@ -1,2 +1,2 @@
-# CMSC-341
-Projects done for CMSC 341
+# CMSC-341 proj0
+Projects 0 done for CMSC 341
