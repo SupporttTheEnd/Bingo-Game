@@ -1,2 +1,2 @@
 # CMSC-341
-Projects down for CMSC 341
+Projects done for CMSC 341
