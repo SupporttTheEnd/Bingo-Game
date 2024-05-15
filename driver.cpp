@@ -1,45 +1,63 @@
-// CMSC 341 - Fall 2023 - Project 1
-#include "csr.h"
-
+// UMBC - CMSC 341 - Fall 2023 - Proj0
+#include "bingo.h"
 class Tester{
+    public:
+    // This function is a sample test function
+    // It shows how to write a test case 
+    bool assignmentNormal(Bingo & lhs, Bingo & rhs){
+        // we expect that lhs object is an exact copy of rhs object 
+        bool result = true;
+        // we expect that the corresponding cells in lhs and rhs
+        //      cards carry the same cell information (exact same copy)
+        for (int i=0;i<rhs.m_numRows;i++){
+            for (int j=0;j<rhs.m_numCols;j++){
+                result = result && (lhs.m_card[i][j] == rhs.m_card[i][j]);
+            }
+        }
+        // we expect that the corresponding cells in lhs and rhs
+        //      m_helper carry the same cell information (exact same copy)
+        for (int i=0;i<rhs.m_helperSize;i++){
+            result = result && (lhs.m_helper[i] == rhs.m_helper[i]);
+        }
+        // we expect that the corresponding cells in lhs and rhs
+        //      m_trackRows carry the same cell information (exact same copy)
+        for (int i=0;i<rhs.m_numRows;i++){
+            result = result && (lhs.m_trackRows[i] == rhs.m_trackRows[i]);
+        }
+        // we expect that the corresponding cells in lhs and rhs
+        //      m_trackCols carry the same cell information (exact same copy)
+        for (int i=0;i<rhs.m_numCols;i++){
+            result = result && (lhs.m_trackCols[i] == rhs.m_trackCols[i]);
+        }
+        result = result && (lhs.m_minBallVal == rhs.m_minBallVal);
+        result = result && (lhs.m_maxBallVal == rhs.m_maxBallVal);
+        return result;
+    }
+    private:
     
+    /**********************************************
+    * If we need helper functions to be reused in *
+    *   test functions they can be declared here!
+    **********************************************/
 };
-// this program presents a sample usage of project 1
-int main()
-{
-    try{
-        Tester tester;
-        CSR aCSR;
-        int array1[] = {10,20,0,0,0,0,0,30,0,40,0,0,0,0,50,60,70,0,0,0,0,0,0,80};
-        aCSR.compress(4,6,array1,24);//initialize object aCSR
-        CSR bCSR(aCSR);//create bCSR using copy constructor
-        CSR cCSR;
-        int array2[] = {0,0,0,0,100,200,0,0,300};
-        cCSR.compress(3,3,array2,9);//initialize object cCSR
-        CSR dCSR(cCSR);//create dCSR using copy constructor
-
-        CSRList aCSRList;//create aCSRList
-        aCSRList.insertAtHead(aCSR);
-        aCSRList.insertAtHead(cCSR);
-        CSRList bCSRList;//create bCSRList
-        bCSRList.insertAtHead(dCSR);
-        bCSRList.insertAtHead(bCSR);
-
-        cout << endl << aCSR.sparseRatio() << endl;
-        cout << endl << cCSR.sparseRatio() << endl;
-
-        cout << endl << "Dumping aCSRList:" << endl;
-        aCSRList.dump();
-        cout << endl << bCSRList.averageSparseRatio() << endl;
-        cout << endl << "Dumping bCSRList:" << endl;
-        bCSRList.dump();
-        
-        cout << endl << aCSRList.getAt(1,2,4) << endl;//returns the value 70
-
-        cout << endl << aCSRList.getAt(5,2,2) << endl;//throws an exception
+int main(){
+    Tester tester;
+    Bingo obj1(CARDROWS,CARDCOLS,MINVAL,MAXVAL);
+    vector<int> balls = obj1.drawBalls();
+    cout << "Balls: ";
+    for (int ball : balls) {
+        cout << ball << " ";
     }
-    catch (exception &e){
-        cout << e.what() << endl;
-    }
+    obj1.initCard();
+    obj1.dumpCard();
+    cout << "\ngame over after " << obj1.play(BALLS,balls) << " hits!\n" << endl;
+    obj1.dumpCard();
+
+    
+    obj1.reCreateCard(CARDROWS,CARDCOLS,MINVAL,MAXVAL);
+    obj1.dumpCard();
+    cout << "\ngame over after " << obj1.play(BALLS,balls) << " hits!\n" << endl;
+    obj1.dumpCard();
+    
     return 0;
 }
