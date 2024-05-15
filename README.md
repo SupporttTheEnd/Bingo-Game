@@ -1,5 +1,3 @@
-# CMSC-341 proj0
-
 # Bingo Game Implementation
 
 ## Overview
