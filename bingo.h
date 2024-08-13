@@ -7,7 +7,7 @@
 #include <random>
 #include <vector>
 using namespace std;
-class Tester;//this is your tester class, you add your test functions in this class
+class Tester;
 const int CARDROWS = 5;     // default number of rows
 const int CARDCOLS = 5;     // default number of columns
 const int MINVAL = 11;      // default min value in a cell
