@@ -1,7 +1,7 @@
 # Bingo Game Implementation
 
 ## Overview
-This repository contains the implementation of a Bingo game in C++. The project includes functionalities to create, initialize, play, and manage a Bingo game.
+This project contains the implementation of a Bingo game in C++. The project includes functionalities to create, initialize, play, and manage a Bingo game.
 
 ## Files
 - `bingo.h` and `bingo.cpp`: These files contain the implementation of the Bingo game class, including constructors, destructor, methods for initializing the game, playing the game, and managing memory.
